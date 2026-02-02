@@ -14,6 +14,24 @@ information below with a pinch of salt. Sorry.
 
 ## Installing and running
 
+First, set up the config files:
+
+```
+cp config/defaults.yml config/config.yml
+cp config/sources-example.yml config/sources.yml
+# Then edit them both to suit your needs.
+```
+
+### With Docker
+
+This maps port 9999 on your computer to port 29138 inside a Docker container
+running Toadua:
+
+```
+docker build -t toadua .
+docker run --mount type=bind,src=./config,dst=/app/config -p 9999:29138 toadua
+```
+
 ### Locally (good for dev env)
 
 - Install [Node.js](https://nodejs.org/en/) version ≥16 (skip this step if
